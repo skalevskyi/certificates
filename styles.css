@@ -1,33 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
-body {
-    font-family: 'Poppins', sans-serif;
+html, body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
     transition: background-color 500ms, color 500ms;
 }
 
-:root {
+.theme-light {
     --bg-color: #f4f4f4;
     --text-color: #333;
     --header-bg: #333;
     --header-text: #fff;
     --modal-bg: rgba(0, 0, 0, 0.8);
-    --transition-speed: 500ms;
     --primary-color: #ff9800;
     --card-bg: #e0e0e0;
 }
 
-body.dark {
+.theme-dark {
     --bg-color: #333;
     --text-color: #f4f4f4;
     --header-bg: #555;
     --header-text: #f4f4f4;
     --primary-color: #ff9800;
     --card-bg: #444;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .header {
@@ -37,8 +44,10 @@ body.dark {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     transition: background-color 500ms, color 500ms;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    height: 70px;
 }
 
 .container {
@@ -64,6 +73,7 @@ body.dark {
     text-align: center;
     transition: transform var(--transition-speed), background-color 500ms, color 500ms;
     border-radius: 10px;
+    transition: all 300ms ease-in-out;
 }
 
 .certificate-img {
@@ -151,4 +161,61 @@ body.dark {
     .certificates {
         grid-template-columns: 1fr;
     }
+}
+
+.switch {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 34px;
+    z-index: 1000; /* Забезпечує, що перемикач буде над іншими елементами */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    transition: 0.4s;
+    background: white url('https://i.ibb.co/FxzBYR9/night.png') center no-repeat;
+    background-size: contain;
+}
+
+input:checked + .slider {
+    background-color: #ff9800;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background: white url('https://i.ibb.co/7JfqXxB/sunny.png') center no-repeat;
+    background-size: contain;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
