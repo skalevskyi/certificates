@@ -45,3 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('slider').addEventListener('change', toggleTheme);
 });
+// -------------------details-------------
