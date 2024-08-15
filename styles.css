@@ -42,13 +42,27 @@ body {
     color: var(--header-text);
     padding: 10px 20px;
     display: flex;
+    flex-direction: column; /* Додаємо цю властивість для вертикального вирівнювання */
     justify-content: center;
     align-items: center;
     position: relative;
     transition: background-color 500ms, color 500ms;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
     height: 70px;
+    text-align: center; /* Вирівнюємо текст по центру */
 }
+
+.header h1, 
+.header h3 {
+    margin: 0; /* Прибираємо зовнішні відступи */
+    line-height: 1.2; /* Контролюємо висоту рядка */
+}
+
+.header h3 {
+    margin-top: 0.5rem; /* Додаємо відступ між h1 і h3 */
+    font-weight: 100;
+}
+
 
 .container {
     padding: 20px;
